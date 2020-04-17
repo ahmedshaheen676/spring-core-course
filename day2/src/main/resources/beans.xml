@@ -1,65 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="address" class="com.shaheen.Address">
-        <constructor-arg index="0" value="EGYPT"/>
-        <constructor-arg index="1" value="Dakahlya"/>
-        <constructor-arg index="2" value="Mansoura"/>
-        <constructor-arg index="3" value="12 beaker st"/>
-    </bean>
+    <bean id="userRepo" class="com.shaheen.repos.UserRepoImpl" scope="prototype"></bean>
+    <bean id="userService" class="com.shaheen.services.UserServiceImpl" autowire="constructor" scope="singleton"/>
 
-    <bean id="userByAddress" class="com.shaheen.User">
-        <constructor-arg ref="address"></constructor-arg>
-    </bean>
+    <bean id="orderRepo" name="" class="com.shaheen.repos.OrderRepoImpl" scope="prototype"></bean>
+    <bean id="orderService" class="com.shaheen.services.OrderServiceImpl" autowire="byType" scope="prototype"/>
 
-    <bean id="userByIndex" class="com.shaheen.User">
-        <constructor-arg index="0" value="1"/>
-        <constructor-arg index="1" value="ahmed"/>
-        <constructor-arg index="2" value="shaheen"/>
-        <constructor-arg index="3" value="8000"/>
-    </bean>
-    <!--   Ambiguous argument values for parameter of type -->
-    <!--    <bean id="userByMissDataType" class="com.shaheen.User">-->
-    <!--        <constructor-arg value="800"/>-->
-    <!--        <constructor-arg value="ahmed"/>-->
-    <!--    </bean>-->
-    <bean id="userByVaildDataType" class="com.shaheen.User">
-        <constructor-arg type="java.lang.Double" value="800"/>
-        <constructor-arg type="java.lang.String" value="ahmed"/>
-    </bean>
-    <!--    factory-->
-    <bean id="factory" class="com.shaheen.UserFactory"/>
-    <bean id="createUser" factory-bean="factory" factory-method="createUser">
-        <constructor-arg index="0" value="ahmed"/>
-        <constructor-arg index="1" value="shaheen"/>
-        <constructor-arg index="2" value="8000"/>
-        <constructor-arg ref="address"/>
-    </bean>
-    <!--    static factory-->
-    <bean id="getUser" class="com.shaheen.UserFactory" factory-method="getUser">
-        <constructor-arg index="0" value="ahmed"/>
-        <constructor-arg index="1" value="shaheen"/>
-        <constructor-arg index="2" value="8000"/>
-        <constructor-arg ref="address"/>
-    </bean>
-    <bean id="userUsingPNameSpace" class="com.shaheen.User" p:firstName="ahmed" p:lastName="shaheen" p:salary="8000"
-          p:address-ref="address"/>
-    <!--    using List interface is not allowed-->
-    <!--    i cant pass the type of <T>-->
-    <bean id="userHasFriends" class="com.shaheen.User">
-        <property name="friends">
-            <list>
-                <ref bean="userByAddress"/>
-                <ref bean="userByIndex"/>
-                <ref bean="userByVaildDataType"/>
-            </list>
-        </property>
-        <!--        <util:list>-->
-        <!--            -->
-        <!--        </util:list>-->
-    </bean>
 </beans>
