@@ -2,7 +2,7 @@ package com.shaheen.services;
 
 import com.shaheen.repos.UserRepo;
 
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService, InitInterface, DestroyInterface {
     UserRepo userRepo;
 
     public UserServiceImpl(UserRepo userRepo) {

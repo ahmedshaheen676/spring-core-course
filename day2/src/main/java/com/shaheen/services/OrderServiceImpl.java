@@ -2,7 +2,7 @@ package com.shaheen.services;
 
 import com.shaheen.repos.OrderRepo;
 
-public class OrderServiceImpl implements OrderService {
+public class OrderServiceImpl implements OrderService, InitInterface, DestroyInterface {
     OrderRepo orderRepo;
 
     public OrderServiceImpl() {
