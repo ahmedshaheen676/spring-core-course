@@ -1,6 +1,6 @@
-package com.day3.services;
+package com.shaheen.services;
 
-import com.day3.repos.OrderRepo;
+import com.shaheen.repos.OrderRepo;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Component;
 

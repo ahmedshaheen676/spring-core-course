@@ -1,6 +1,6 @@
-package com.day3.services;
+package com.shaheen.services;
 
-import com.day3.repos.UserRepo;
+import com.shaheen.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

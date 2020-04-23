@@ -1,4 +1,4 @@
-package com.day3.repos;
+package com.shaheen.repos;
 
 import org.springframework.stereotype.Component;
 

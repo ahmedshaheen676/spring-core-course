@@ -1,4 +1,4 @@
-package com.day3.repos;
+package com.shaheen.repos;
 
 public interface OrderRepo {
 }

@@ -1,4 +1,4 @@
-package com.day3.services;
+package com.shaheen.services;
 
 public interface UserService {
 }
